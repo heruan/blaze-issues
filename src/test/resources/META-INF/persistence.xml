@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence
+                                 https://jakarta.ee/xml/ns/persistence/persistence_3_2.xsd"
+             version="3.2">
+
+    <!--
+        One persistence-unit shared across all reproducers. Auto-discovery
+        is enabled (`<exclude-unlisted-classes>false</exclude-unlisted-classes>`),
+        so a new repro just adds its `@Entity` / `@CTE @Entity` classes
+        under `src/main/java/to/lova/blaze/issues/<slug>/` and they are
+        registered automatically. JDBC connection details are injected at
+        test time by the per-test `@Testcontainers` PostgreSQL container.
+    -->
+    <persistence-unit name="repro" transaction-type="RESOURCE_LOCAL">
+        <exclude-unlisted-classes>false</exclude-unlisted-classes>
+        <properties>
+            <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+        </properties>
+    </persistence-unit>
+</persistence>

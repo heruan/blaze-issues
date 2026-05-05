@@ -1,0 +1,20 @@
+[versions]
+blaze-persistence = "1.6.18"
+hibernate = "7.2.12.Final"
+postgresql = "42.7.10"
+testcontainers = "1.21.3"
+junit = "5.13.4"
+assertj = "3.27.6"
+
+slf4j = "2.0.17"
+
+[libraries]
+slf4j-simple = { module = "org.slf4j:slf4j-simple", version.ref = "slf4j" }
+blaze-persistence-core-impl = { module = "com.blazebit:blaze-persistence-core-impl-jakarta", version.ref = "blaze-persistence" }
+blaze-persistence-integration-hibernate = { module = "com.blazebit:blaze-persistence-integration-hibernate-7.2", version.ref = "blaze-persistence" }
+hibernate-core = { module = "org.hibernate.orm:hibernate-core", version.ref = "hibernate" }
+postgresql = { module = "org.postgresql:postgresql", version.ref = "postgresql" }
+testcontainers-postgresql = { module = "org.testcontainers:postgresql", version.ref = "testcontainers" }
+testcontainers-junit-jupiter = { module = "org.testcontainers:junit-jupiter", version.ref = "testcontainers" }
+junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit" }
+assertj-core = { module = "org.assertj:assertj-core", version.ref = "assertj" }
