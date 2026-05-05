@@ -17,11 +17,9 @@ src/main/java/to/lova/blaze/issues/
     <issue-slug>/                — JPA entities + Blaze CTE entities used by the repro
 src/test/java/to/lova/blaze/issues/
     <issue-slug>/ReproTest.java  — JUnit 5 test that triggers the bug (or asserts the fix)
-src/test/resources/META-INF/
-    persistence.xml              — single shared persistence unit, auto-discovers @Entity classes
 ```
 
-Each reproducer lives in its own sub-package under `to.lova.blaze.issues.<issue-slug>` so a stack trace tells you which repro is firing.
+Each reproducer lives in its own sub-package under `to.lova.blaze.issues.<issue-slug>` so a stack trace tells you which repro is firing. Each test builds its own Hibernate `EntityManagerFactory` programmatically via `org.hibernate.jpa.HibernatePersistenceConfiguration` and lists exactly the `@Entity` / `@CTE @Entity` classes it needs — no shared `persistence.xml`, no cross-repro contamination.
 
 ## Versions
 
