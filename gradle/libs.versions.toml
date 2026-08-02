@@ -1,5 +1,5 @@
 [versions]
-blaze-persistence = "1.6.18"
+blaze-persistence = "1.6.20"
 hibernate = "7.2.12.Final"
 postgresql = "42.7.10"
 testcontainers = "1.21.3"
