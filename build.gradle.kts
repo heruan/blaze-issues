@@ -14,6 +14,7 @@ repositories {
 
 dependencies {
     implementation(libs.blaze.persistence.core.impl)
+    implementation(libs.blaze.persistence.entity.view.impl)
     implementation(libs.blaze.persistence.integration.hibernate)
     implementation(libs.hibernate.core)
     runtimeOnly(libs.postgresql)
